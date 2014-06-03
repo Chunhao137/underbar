@@ -272,7 +272,7 @@ describe('every', function() {
     expect(_.every([true, true, true])).to.equal(true);
   });
 
-  it('works when provded a collection containing undefined values', function() {
+  it('works when provided a collection containing undefined values', function() {
     expect(_.every([undefined, undefined, undefined], _.identity)).to.equal(false);
   });
 });
