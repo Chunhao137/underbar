@@ -274,6 +274,7 @@ describe('every', function() {
 
   it('works when provided a collection containing undefined values', function() {
     expect(_.every([undefined, undefined, undefined], _.identity)).to.equal(false);
+    expect(_.every([undefined,0,null], function(value){ return !value;})).to.equal(true) ;
   });
 });
 
