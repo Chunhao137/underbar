@@ -215,9 +215,6 @@ var _ = {};
        })
 
        return init
-
-
-
   };
 
   // Determine if the array or object contains a given value (using `===`).
@@ -257,8 +254,6 @@ var _ = {};
 
           return accumulator || !!iterator(value)
 
-
-
     },false)
   };
 
@@ -283,8 +278,7 @@ var _ = {};
   //   }); // obj1 now contains key1, key2, key3 and bla
   _.extend = function(obj) {
 
-
-var args = Array.prototype.slice.call(arguments, 1);
+   var args = Array.prototype.slice.call(arguments, 1);
     _.each(args, function(item){
       _.each(item, function(value, key){
         obj[key] = value;
@@ -327,17 +321,17 @@ var args = Array.prototype.slice.call(arguments, 1);
     // TIP: These variables are stored in a "closure scope" (worth researching),
     // so that they'll remain available to the newly-generated function every
     // time it's called.
-    var alreadyCalled = false;
+    var init = false;
     var result;
 
     // TIP: We'll return a new function that delegates to the old one, but only
     // if it hasn't been called before.
     return function() {
-      if (!alreadyCalled) {
+      if (!init) {
         // TIP: .apply(this, arguments) is the standard way to pass on all of the
         // infromation from one function call to another.
         result = func.apply(this, arguments);
-        alreadyCalled = true;
+        init = true;
       }
       // The new function always returns the originally computed result.
       return result;
@@ -360,8 +354,6 @@ var args = Array.prototype.slice.call(arguments, 1);
             result[value]= func.apply(this,arguments)
          }
          return result[value]
-
-
     }
   };
 
@@ -410,9 +402,7 @@ var args = Array.prototype.slice.call(arguments, 1);
 
        }
        
-
        return result
-
 
   };
 
